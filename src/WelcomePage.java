@@ -18,11 +18,16 @@ public class WelcomePage implements ActionListener {
         welcomeLabel.setFont(new Font(null, Font.PLAIN, 25));
         enterButton.setBounds(200, 200, 75, 20);
 
+
+
+        // Add to Frame
         frame.add(welcomeLabel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(420, 420);
         frame.add(spinner);
         frame.add(enterButton);
+
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(420, 420);
+
         frame.setLayout(null);
         frame.setVisible(true);
 

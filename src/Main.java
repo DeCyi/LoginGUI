@@ -3,6 +3,6 @@ public class Main {
         IDandPassword idandpassword = new IDandPassword();
 
         LoginPage loginpage = new LoginPage(idandpassword.getLoginInfo());
-
+        // PAG ITO DI GUMANA
     }
 }

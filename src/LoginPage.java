@@ -12,11 +12,12 @@ public class LoginPage implements ActionListener {
     JPasswordField passwordField = new JPasswordField();
     JLabel userIDLabel = new JLabel("Username: ");
     JLabel passwordLabel = new JLabel("Password: ");
-    JLabel messageLabel = new JLabel("Login GUI");
+    JLabel messageLabel = new JLabel();
 
     HashMap<String,String> logininfo = new HashMap<String,String>();
     LoginPage(HashMap<String, String> loginInfoOriginal) {
         logininfo = loginInfoOriginal;
+        // Setting for Bounds
 
         userIDLabel.setBounds(50,100,75,25);
         passwordLabel.setBounds(50,150,75,25);
@@ -28,6 +29,8 @@ public class LoginPage implements ActionListener {
         passwordField.setBounds(125,150,200,25);
 
         loginButton.setBounds(125,200,100,25);
+
+        // Add actionl listener
         loginButton.addActionListener(this);
         loginButton.setFocusable(false);
 
@@ -35,16 +38,18 @@ public class LoginPage implements ActionListener {
         resetButton.setFocusable(false);
         resetButton.addActionListener(this);
 
+
+        // Adding frames
         frame.add(userIDLabel);
         frame.add(passwordLabel);
-        frame.add(messageLabel);
+       // frame.add(messageLabel);
         frame.add(userIDField);
         frame.add(passwordField);
         frame.add(loginButton);
         frame.add(resetButton);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(420,420);
+        frame.setSize(500,500);
         frame.setLayout(null);
         frame.setVisible(true);
 
@@ -65,12 +70,13 @@ public class LoginPage implements ActionListener {
                 if(logininfo.get(userID).equals(password)) {
                     messageLabel.setForeground(Color.green);
                     messageLabel.setText("Login Success");
-                    frame.dispose();
-                    WelcomePage welcomePage = new WelcomePage();
+                   /* frame.dispose();
+                     WelcomePage welcomePage = new WelcomePage(); */
                 }
             }
 
             else {
+                frame.add(messageLabel);
                 messageLabel.setForeground(Color.red);
                 messageLabel.setText("STI BULOK KAHIT KELAN");
                 userIDField.setText("");
@@ -78,6 +84,7 @@ public class LoginPage implements ActionListener {
             }
         }
         else {
+            frame.add(messageLabel);
             messageLabel.setForeground(Color.RED);
             messageLabel.setText("User not found");
         }
